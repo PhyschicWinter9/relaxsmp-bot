@@ -34,6 +34,7 @@ module.exports = {
       ].url;
 
       const directLink = format.url;
+      const description = `[Direct Download MP3](${directLink})\n> **Description**\n\`\`\`${yotubetinfo.videoDetails.description}\`\`\``;
 
       // Variable Minecraft Command
       // /give PhyschicWinter9 urlmusicdiscs:custom_record{display:{Name:'[{"text":"Monalisa","italic":false}]'},music_url:"https://www.youtube.com/watch?v=f6yW1Q9CXC8"} 1
@@ -58,11 +59,7 @@ module.exports = {
         .setTitle(`${yotubetinfo.videoDetails.title}`)
         .setURL(`${yotubetinfo.videoDetails.video_url}`)
         .setDescription(
-          "[Direct Download MP3](" +
-            directLink +
-            ")\n> **Description**\n```" +
-            yotubetinfo.videoDetails.description +
-            "}```"
+          description.substring(0, 4096)
         )
         .addFields(
           {
